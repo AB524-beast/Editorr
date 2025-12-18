@@ -1,2 +1,0 @@
-# Editorr
-Online photo editor
