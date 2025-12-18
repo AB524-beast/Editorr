@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body class="light">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <h1>EDITORR</h1>
+    <div class="top-actions">
+      <button id="themeToggle" title="Toggle theme">🌗</button>
+      <a href="/logout" id="logoutBtn" class="btn outline small">Logout</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="card">
+    <div id="dropArea" class="drop-area">
+      <input type="file" id="imageInput" accept="image/*" hidden>
+      <button id="chooseBtn" class="btn outline">Choose Image</button>
+      <p class="muted">or drag & drop an image here</p>
+
+      <div class="previews">
+        <div id="previewWrap" class="preview-wrap hidden">
+          <div class="label muted">Original</div>
+          <div class="preview-inner">
+            <img id="previewImg" alt="Original preview">
+            <div id="previewSpinner" class="spinner hidden" aria-hidden="true"></div>
+          </div>
+          <div id="fileName" class="filename"></div>
+        </div>
+
+        <div id="processedPreviewWrap" class="preview-wrap processed hidden">
+          <div class="label muted">Processed</div>
+          <div class="preview-inner">
+            <img id="processedPreviewImg" alt="Processed preview">
+            <div id="processedSpinner" class="spinner hidden" aria-hidden="true"></div>
+          </div>
+          <div id="processedFileName" class="filename muted"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="actions" role="toolbar" aria-label="Conversion actions">
+        <button class="btn active" data-action="grayscale">Greyscale</button>
+        <button class="btn" data-action="png">To PNG</button>
+        <button class="btn" data-action="jpg">To JPG</button>
+        <button class="btn" data-action="webp">To WEBP</button>
+      </div>
+
+      <div class="process-row">
+        <button id="processBtn" class="btn primary">Process</button>
+        <button id="previewBtn" class="btn">Preview</button>
+        <a id="downloadBtn" class="btn primary" style="display:none">Download</a>
+        <button id="clearBtn" class="btn outline">Clear</button>
+      </div>
+
+      <div id="status" class="muted"></div>
+      <div id="progress" class="progress hidden"><div class="bar"></div></div>
+
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">AB @ 2025</footer>
+</body>
+</html> 
